@@ -89,25 +89,99 @@ document.addEventListener('DOMContentLoaded', function() {
         // Show loading state
         submitButton.classList.add('loading');
         submitButton.disabled = true;
-        
+
         // Collect form data
         const formData = collectFormData();
-        
-        // Simulate form processing (in real implementation, this would send data to server)
+
+        // Build a mailto link so the client can send the form data via their default email client
+        const mailtoLink = createMailtoLink(formData);
+
+        // Attempt to open the user's default mail application with the pre‑filled message
+        // Using window.location.href ensures the current page navigates to the mailto link
+        window.location.href = mailtoLink;
+
+        // After triggering the mail client, display a success message and reset the form state
         setTimeout(() => {
             console.log('Form Data Collected:', formData);
-            
+
             // Hide form and show success message
             form.style.display = 'none';
             successMessage.classList.remove('hidden');
-            
+
             // Reset loading state
             submitButton.classList.remove('loading');
             submitButton.disabled = false;
-            
+
             // Scroll to top
             window.scrollTo(0, 0);
-        }, 1500);
+        }, 500);
+    }
+
+    /**
+     * Create a mailto link containing the form submission details.  This link
+     * opens the user's default mail client with a subject and body populated
+     * from the form data.  The recipient defaults to the configured
+     * recipientEmail property on the form data but falls back to the
+     * hard‑coded address used by Homegen.
+     *
+     * @param {Object} data The collected form submission data.
+     * @returns {string} A formatted mailto link with encoded subject and body.
+     */
+    function createMailtoLink(data) {
+        // Determine the recipient address.  Use the explicit recipientEmail
+        // from the collected data if available, otherwise fall back to
+        // balamurali.deva@gmail.com.
+        const recipient = data.recipientEmail || data.basicInformation.recipientEmail || 'balamurali.deva@gmail.com';
+
+        // Construct the email subject.  Include the client's name when
+        // available for easier identification of submissions.
+        const name = data.basicInformation.name || 'Client';
+        const subject = `New client requirements submission from ${name}`;
+
+        // Build the email body with clear section headings and values.  Each
+        // line break is encoded later when building the final mailto string.
+        let body = '';
+        body += 'Basic Information:\n';
+        body += `Name: ${data.basicInformation.name || ''}\n`;
+        body += `Property Name: ${data.basicInformation.propertyName || ''}\n`;
+        body += `Location: ${data.basicInformation.location || ''}\n`;
+        body += `Contact Number: ${data.basicInformation.contactNumber || ''}\n`;
+        body += `Client Email: ${data.basicInformation.email || ''}\n\n`;
+
+        body += 'Project Details:\n';
+        body += `Handing Over Status: ${data.projectDetails.handingOverStatus || ''}\n`;
+        body += `Property Type: ${data.projectDetails.propertyType || ''}\n`;
+        body += `Total Area: ${data.projectDetails.totalArea || ''}\n`;
+        body += `Number of Rooms: ${data.projectDetails.numberOfRooms || ''}\n\n`;
+
+        body += 'Budget & Timeline:\n';
+        body += `Budget Range: ${data.budgetTimeline.budgetRange || ''}\n`;
+        body += `Preferred Meeting Time: ${data.budgetTimeline.meetingTime || ''}\n`;
+        body += `Project Timeline: ${data.budgetTimeline.projectTimeline || ''}\n\n`;
+
+        body += 'Design Preferences:\n';
+        body += `Interior Style: ${Array.isArray(data.designPreferences.interiorStyle) && data.designPreferences.interiorStyle.length ? data.designPreferences.interiorStyle.join(', ') : ''}\n`;
+        body += `Rooms to Design: ${Array.isArray(data.designPreferences.roomsToDesign) && data.designPreferences.roomsToDesign.length ? data.designPreferences.roomsToDesign.join(', ') : ''}\n`;
+        body += `Color Preferences: ${Array.isArray(data.designPreferences.colorPreferences) && data.designPreferences.colorPreferences.length ? data.designPreferences.colorPreferences.join(', ') : ''}\n\n`;
+
+        body += 'Special Requirements:\n';
+        body += `${data.requirements.specialRequirements || ''}\n\n`;
+
+        body += 'Inspiration / References:\n';
+        body += `${data.requirements.inspiration || ''}\n\n`;
+
+        body += 'Additional Services:\n';
+        body += `${Array.isArray(data.additionalServices) && data.additionalServices.length ? data.additionalServices.join(', ') : 'None'}\n\n`;
+
+        body += `Submitted At: ${data.submittedAt || ''}\n`;
+
+        // Encode subject and body for URL safety.  Replace spaces and newlines
+        // with appropriate percent‑encoded values so they are preserved when
+        // the mail client interprets the URL.
+        const encodedSubject = encodeURIComponent(subject);
+        const encodedBody = encodeURIComponent(body);
+
+        return `mailto:${recipient}?subject=${encodedSubject}&body=${encodedBody}`;
     }
 
     // Collect all form data
