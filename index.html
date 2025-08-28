@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homegen Interior Design - Client Requirements Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="form-header">
+            <div class="company-logo">
+                <h1>Homegen Interior Design</h1>
+                <div class="logo-accent"></div>
+            </div>
+            <h2 class="form-title">Client Requirements Form</h2>
+            <p class="form-subtitle">Help us create your dream space by sharing your interior design needs and preferences</p>
+        </header>
+
+        <form id="clientForm" class="main-form">
+            <!-- Basic Information Section -->
+            <section class="form-section">
+                <h3 class="section-title">Basic Information</h3>
+                
+                <div class="form-group">
+                    <label class="form-label" for="name">Name <span class="required">*</span></label>
+                    <input type="text" id="name" name="name" class="form-control" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="propertyName">Property Name <span class="required">*</span></label>
+                    <input type="text" id="propertyName" name="propertyName" class="form-control" placeholder="e.g., Green Valley Apartments" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="location">Location <span class="required">*</span></label>
+                    <input type="text" id="location" name="location" class="form-control" placeholder="Full address including city and state" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="contactNumber">Contact Number</label>
+                    <input type="tel" id="contactNumber" name="contactNumber" class="form-control" placeholder="+91 98765 43210">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="email">Email Address <span class="required">*</span></label>
+                    <input type="email" id="email" name="email" class="form-control" required>
+                </div>
+            </section>
+
+            <!-- Project Details Section -->
+            <section class="form-section">
+                <h3 class="section-title">Project Details</h3>
+                
+                <div class="form-group">
+                    <label class="form-label" for="handingOverStatus">Handing Over Status <span class="required">*</span></label>
+                    <select id="handingOverStatus" name="handingOverStatus" class="form-control" required>
+                        <option value="">Please select</option>
+                        <option value="ready-to-move">Ready to Move In</option>
+                        <option value="under-construction">Under Construction</option>
+                        <option value="renovation-required">Renovation Required</option>
+                        <option value="planning-stage">Planning Stage</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="propertyType">Property Type <span class="required">*</span></label>
+                    <select id="propertyType" name="propertyType" class="form-control" required>
+                        <option value="">Please select</option>
+                        <option value="apartment">Apartment</option>
+                        <option value="villa">Villa</option>
+                        <option value="office">Office</option>
+                        <option value="retail-space">Retail Space</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="totalArea">Total Area (sq ft)</label>
+                    <input type="text" id="totalArea" name="totalArea" class="form-control" placeholder="e.g., 1200">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="numberOfRooms">Number of Rooms</label>
+                    <select id="numberOfRooms" name="numberOfRooms" class="form-control">
+                        <option value="">Please select</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="10+">10+</option>
+                    </select>
+                </div>
+            </section>
+
+            <!-- Budget & Timeline Section -->
+            <section class="form-section">
+                <h3 class="section-title">Budget & Timeline</h3>
+                
+                <div class="form-group">
+                    <label class="form-label" for="budgetRange">Budget Range <span class="required">*</span></label>
+                    <select id="budgetRange" name="budgetRange" class="form-control" required>
+                        <option value="">Please select</option>
+                        <option value="under-5-lakhs">Under 5 Lakhs</option>
+                        <option value="5-10-lakhs">5-10 Lakhs</option>
+                        <option value="10-20-lakhs">10-20 Lakhs</option>
+                        <option value="20-50-lakhs">20-50 Lakhs</option>
+                        <option value="50-lakhs-plus">50 Lakhs+</option>
+                        <option value="prefer-not-to-say">Prefer not to say</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="meetingTime">Preferred Meeting Time <span class="required">*</span></label>
+                    <select id="meetingTime" name="meetingTime" class="form-control" required>
+                        <option value="">Please select</option>
+                        <option value="morning">Morning (9 AM - 12 PM)</option>
+                        <option value="afternoon">Afternoon (12 PM - 5 PM)</option>
+                        <option value="evening">Evening (5 PM - 8 PM)</option>
+                        <option value="weekend-only">Weekend Only</option>
+                        <option value="flexible">Flexible</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="projectTimeline">Project Timeline</label>
+                    <select id="projectTimeline" name="projectTimeline" class="form-control">
+                        <option value="">Please select</option>
+                        <option value="asap">ASAP</option>
+                        <option value="1-3-months">1-3 months</option>
+                        <option value="3-6-months">3-6 months</option>
+                        <option value="6-plus-months">6+ months</option>
+                        <option value="flexible">Flexible</option>
+                    </select>
+                </div>
+            </section>
+
+            <!-- Design Preferences Section -->
+            <section class="form-section">
+                <h3 class="section-title">Design Preferences</h3>
+                
+                <div class="form-group">
+                    <label class="form-label">Preferred Interior Style</label>
+                    <div class="checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="interiorStyle" value="modern">
+                            <span class="checkmark"></span>
+                            Modern
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="interiorStyle" value="contemporary">
+                            <span class="checkmark"></span>
+                            Contemporary
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="interiorStyle" value="traditional">
+                            <span class="checkmark"></span>
+                            Traditional
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="interiorStyle" value="minimalist">
+                            <span class="checkmark"></span>
+                            Minimalist
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="interiorStyle" value="industrial">
+                            <span class="checkmark"></span>
+                            Industrial
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="interiorStyle" value="scandinavian">
+                            <span class="checkmark"></span>
+                            Scandinavian
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="interiorStyle" value="bohemian">
+                            <span class="checkmark"></span>
+                            Bohemian
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="interiorStyle" value="mediterranean">
+                            <span class="checkmark"></span>
+                            Mediterranean
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="interiorStyle" value="art-deco">
+                            <span class="checkmark"></span>
+                            Art Deco
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="interiorStyle" value="other">
+                            <span class="checkmark"></span>
+                            Other
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Rooms to be Designed</label>
+                    <div class="checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="roomsToDesign" value="living-room">
+                            <span class="checkmark"></span>
+                            Living Room
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="roomsToDesign" value="kitchen">
+                            <span class="checkmark"></span>
+                            Kitchen
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="roomsToDesign" value="master-bedroom">
+                            <span class="checkmark"></span>
+                            Master Bedroom
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="roomsToDesign" value="guest-bedrooms">
+                            <span class="checkmark"></span>
+                            Guest Bedrooms
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="roomsToDesign" value="bathrooms">
+                            <span class="checkmark"></span>
+                            Bathrooms
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="roomsToDesign" value="dining-area">
+                            <span class="checkmark"></span>
+                            Dining Area
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="roomsToDesign" value="study-office">
+                            <span class="checkmark"></span>
+                            Study/Office
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="roomsToDesign" value="balcony-terrace">
+                            <span class="checkmark"></span>
+                            Balcony/Terrace
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="roomsToDesign" value="kids-room">
+                            <span class="checkmark"></span>
+                            Kids Room
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="roomsToDesign" value="all-rooms">
+                            <span class="checkmark"></span>
+                            All Rooms
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Color Preferences</label>
+                    <div class="checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="colorPreferences" value="neutral-tones">
+                            <span class="checkmark"></span>
+                            Neutral Tones
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="colorPreferences" value="bold-colors">
+                            <span class="checkmark"></span>
+                            Bold Colors
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="colorPreferences" value="earth-tones">
+                            <span class="checkmark"></span>
+                            Earth Tones
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="colorPreferences" value="pastels">
+                            <span class="checkmark"></span>
+                            Pastels
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="colorPreferences" value="monochrome">
+                            <span class="checkmark"></span>
+                            Monochrome
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="colorPreferences" value="no-preference">
+                            <span class="checkmark"></span>
+                            No Preference
+                        </label>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Special Requirements Section -->
+            <section class="form-section">
+                <h3 class="section-title">Specific Requirements</h3>
+                
+                <div class="form-group">
+                    <label class="form-label" for="specialRequirements">Special Requirements</label>
+                    <textarea id="specialRequirements" name="specialRequirements" class="form-control" rows="4" placeholder="Please describe any specific needs, accessibility requirements, or special considerations"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="inspiration">Inspiration/References</label>
+                    <textarea id="inspiration" name="inspiration" class="form-control" rows="4" placeholder="Share any design ideas, websites, or references that inspire you"></textarea>
+                </div>
+            </section>
+
+            <!-- Additional Services Section -->
+            <section class="form-section">
+                <h3 class="section-title">Additional Services</h3>
+                
+                <div class="form-group">
+                    <label class="form-label">Additional Services Needed</label>
+                    <div class="checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="additionalServices" value="furniture-selection">
+                            <span class="checkmark"></span>
+                            Furniture Selection
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="additionalServices" value="lighting-design">
+                            <span class="checkmark"></span>
+                            Lighting Design
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="additionalServices" value="custom-furniture">
+                            <span class="checkmark"></span>
+                            Custom Furniture
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="additionalServices" value="art-decor">
+                            <span class="checkmark"></span>
+                            Art & Decor
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="additionalServices" value="landscaping">
+                            <span class="checkmark"></span>
+                            Landscaping
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="additionalServices" value="home-automation">
+                            <span class="checkmark"></span>
+                            Home Automation
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="additionalServices" value="vastu-consultation">
+                            <span class="checkmark"></span>
+                            Vastu Consultation
+                        </label>
+                    </div>
+                </div>
+            </section>
+
+            <div class="form-actions">
+                <button type="submit" class="btn btn--primary btn--lg">Submit Requirements</button>
+            </div>
+        </form>
+
+        <!-- Success Message (Hidden by default) -->
+        <div id="successMessage" class="success-message hidden">
+            <div class="success-content">
+                <div class="success-icon">✓</div>
+                <h3>Thank you for your submission!</h3>
+                <p>The Homegen team will review your requirements and contact you soon. Your responses have been sent to our design team at <strong>balamurali.deva@gmail.com</strong>.</p>
+                <button type="button" class="btn btn--secondary" onclick="resetForm()">Submit Another Response</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
